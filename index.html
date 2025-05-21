@@ -1,63 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecionando...</title>
 
-  <!-- Pixel do Facebook -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src='https://connect.facebook.net/en_US/fbevents.js';
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script');
+  <!-- Meta para SEO básico -->
+  <meta name="description" content="Aguarde alguns segundos... Você já irá receber seu produto.">
+  <meta http-equiv="refresh" content="5;url=https://drive.google.com/file/d/1EeRy5R-7yjORMMsNvwRLGOBEuvx9fIr5/view?usp=drivesdk" />
 
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1199333351345626');
     fbq('track', 'Purchase', {
-      value: 10.00,
+      value: 20.00,
       currency: 'BRL'
     });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1199333351345626&ev=Purchase&cd[value]=10.00&cd[currency]=BRL&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1199333351345626&ev=Purchase&cd[value]=20.00&cd[currency]=BRL&noscript=1"/>
   </noscript>
-
-  <!-- Redirecionamento após carregamento -->
-  <script>
-    setTimeout(function() {
-      window.location.href = "https://drive.google.com/file/d/1EeRy5R-7yjORMMsNvwRLGOBEuvx9fIr5/view?usp=drivesdk"; // Substitua X pela URL de destino
-    }, 100); // Redireciona rapidamente (em 100ms)
-  </script>
+  <!-- End Facebook Pixel Code -->
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #ffffff;
-      color: #333;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+      background-color: #fdfdfd;
+      color: #333;
+      text-align: center;
     }
 
     .message {
       padding: 20px;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 480px) {
+      .message {
+        font-size: 1.1rem;
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="message">
-    <h1>Redirecionando...</h1>
-    <p>liberando seu acesso ao e-book.</p>
+    Aguarde alguns segundos...<br />
+    Você já irá receber seu produto.
   </div>
 </body>
+</html>
 </html>
 
