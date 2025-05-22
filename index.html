@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Receba seu produto</title>
 
-  <!-- Meta para SEO básico -->
   <meta name="description" content="Clique no botão abaixo para acessar seu produto.">
 
   <!-- Facebook Pixel Code -->
@@ -20,6 +19,7 @@
     }(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1199333351345626');
+    fbq('track', 'PageView'); // IMPORTANTE: track PageView ao iniciar o pixel
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
@@ -68,19 +68,21 @@
   <div class="message">
     Clique no botão abaixo para receber seu produto.
   </div>
-  <button class="button" onclick="handleClick()">Acessar Produto</button>
+  <button class="button" onclick="handleClick(); return false;">Acessar Produto</button>
 
   <script>
     function handleClick() {
+      console.log('Evento Purchase disparado'); // para debug no console
+
       fbq('track', 'Purchase', {
         value: 20.00,
         currency: 'BRL'
       });
 
-      // Aguarda 1 segundo para garantir o envio do evento
+      // Aguarde 1.5 segundos para garantir que o evento seja enviado
       setTimeout(() => {
         window.location.href = "https://drive.google.com/drive/folders/15U7lkkFG5VJ6Zc_e3LiRkSpVHd_wBufO?usp=drive_link";
-      }, 1000);
+      }, 1500);
     }
   </script>
 </body>
