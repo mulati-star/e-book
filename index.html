@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecionando...</title>
+  <title>Receba seu produto</title>
 
   <!-- Meta para SEO básico -->
-  <meta name="description" content="Aguarde alguns segundos... Você já irá receber seu produto.">
-  <meta http-equiv="refresh" content="5;url=https://drive.google.com/file/d/1EeRy5R-7yjORMMsNvwRLGOBEuvx9fIr5/view?usp=drivesdk" />
+  <meta name="description" content="Clique no botão abaixo para acessar seu produto.">
 
   <!-- Facebook Pixel Code -->
   <script>
@@ -21,14 +20,10 @@
     }(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1199333351345626');
-    fbq('track', 'Purchase', {
-      value: 20.00,
-      currency: 'BRL'
-    });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1199333351345626&ev=Purchase&cd[value]=20.00&cd[currency]=BRL&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1199333351345626&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Facebook Pixel Code -->
 
@@ -38,6 +33,7 @@
       padding: 0;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -51,20 +47,41 @@
       font-size: 1.3rem;
     }
 
-    @media (max-width: 480px) {
-      .message {
-        font-size: 1.1rem;
-        padding: 15px;
-      }
+    .button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <div class="message">
-    Aguarde alguns segundos...<br />
-    Você já irá receber seu produto.
+    Clique no botão abaixo para receber seu produto.
   </div>
+  <button class="button" onclick="handleClick()">Acessar Produto</button>
+
+  <script>
+    function handleClick() {
+      fbq('track', 'Purchase', {
+        value: 20.00,
+        currency: 'BRL'
+      });
+
+      // Aguarda 1 segundo para garantir o envio do evento
+      setTimeout(() => {
+        window.location.href = "https://drive.google.com/drive/folders/15U7lkkFG5VJ6Zc_e3LiRkSpVHd_wBufO?usp=drive_link";
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
-</html>
-
